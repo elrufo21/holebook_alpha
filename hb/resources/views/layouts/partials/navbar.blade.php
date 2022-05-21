@@ -16,7 +16,7 @@
       </form>
 
       @auth
-        <a href="">{{auth()->user()->name}}</a>
+        <a href="{{route('user.index')}}">{{auth()->user()->name}}</a>
         <div class="text-end px-2">
           <a href="{{ route('logout.perform') }}" class="btn btn-outline-light me-2">Logout</a>
         </div>

@@ -6,7 +6,7 @@
         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
         
         
-        <h1 class="h3 mb-3 fw-normal">Login</h1>
+        <h1 class="h3 mb-3 fw-normal">HoleBook</h1>
 
         @include('layouts.partials.messages')
 
@@ -27,6 +27,7 @@
         </div>
 
         <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
+        <p>¿No tienes una cuenta?<a href="{{route('register.show')}}">Crea una</a></p>
         
         @include('auth.partials.copy')
     </form>

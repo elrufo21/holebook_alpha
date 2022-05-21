@@ -4,6 +4,7 @@ use App\Http\Controllers\LibrosController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SubController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,3 +57,5 @@ Route::post('libros',[LibrosController::class,'store'])->name('libros.store');
 Route::get('libros/{id}',[LibrosController::class,'show'])->name('libros.show');
 
 Route::get('suscribirse',[SubController::class,'index'])->name('sub.index');
+
+Route::get('user',[UserController::class,'index'])->name('user.index');
