@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-
+@extends('layouts.app-master')
+@section('content')
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apock web design</title>
+    <title>Perfil</title>
     <link rel="stylesheet" type="text/css" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
@@ -281,12 +280,14 @@
                     </a>
                 </div>
                 <div class="datos-perfil">
-                    <h4 class="titulo-usuario">Nombre de usuario</h4>
-                    <p class="bio-usuario">Lorem ipsum dolor sit, amet consectetur adipisicing.</p>
+                    <h4 class="titulo-usuario">{{auth()->user()->name}}</h4>
+                    <p class="bio-usuario">@if (auth()->user()->role == 'subs')
+                        Suscriptor hasta {{auth()->user()->cSub}}
+                    @endif</p>
                     <ul class="lista-perfil">
-                        <li>35 Seguidores</li>
-                        <li>7 Seguidos</li>
-                        <li>32 Publicaciones</li>
+                        <li>25 Seguidores</li>
+                        <li></li>
+                        <li>5 Libros</li>
                     </ul>
                 </div>
                 <div class="opcciones-perfil">
@@ -298,8 +299,8 @@
                 <ul>
                     <li><a href="#" title=""><i class="icono-perfil fas fa-bullhorn"></i> Publicaciones</a></li>
                     <li><a href="#" title=""><i class="icono-perfil fas fa-info-circle"></i> Informacion</a></li>
-                    <li><a href="#" title=""><i class="icono-perfil fas fa-grin"></i> Amigos 43</a></li>
-                    <li><a href="#" title=""><i class="icono-perfil fas fa-camera"></i> Fotos</a></li>
+                    <li><a href="#" title=""><i class="icono-perfil fas fa-grin"></i> Favoritos</a></li>
+                    <li><a href="#" title=""><i class="icono-perfil fas fa-camera"></i>Mis Libros</a></li>
                 </ul>
             </div>
         </div>
@@ -332,3 +333,4 @@
 </body>
 
 </html>
+@endsection
