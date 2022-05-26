@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Libro;
 use Illuminate\Http\Request;
+use PhpParser\Node\Stmt\Return_;
 
 class LibrosController extends Controller
 {
@@ -29,8 +30,30 @@ class LibrosController extends Controller
 
         return redirect()->route('libros.show',$libro);
     }
-    public function show($id){
-        $libro = Libro::find($id);
+    public function show(Libro $libro){
         return view('libros.show',compact('libro'));
+    }
+    public function edit(Libro $libro){
+        //Optimizacion de codigo
+        /*$libro = Libro::find($id);
+
+        return $libro;*/
+
+        return view('libros.edit', compact('libro'));
+
+    }
+    public function update(Request $request,Libro $libro){
+        $libro->name = $request->name;
+        $libro->genre = $request->genre;
+        $libro->img = $request->img; 
+        $libro->publication_date = $request->publication_date;
+        $libro->description = $request->description;
+        $libro->Author = $request->Author;
+        $libro->link = $request->link;
+        $libro->save();
+
+        return redirect()->route('libros.show',$libro);
+
+       
     }
 }

@@ -242,7 +242,7 @@
         </div>
 
         <div class="banner-container">
-            <div class="title-container">
+            <div class="title-container">   
                 <div class="title-top">
                     <div class="movie-title">
                         <h1>{{ $libro->name }}</h1>
@@ -263,15 +263,18 @@
                     <div class="category">
                         <strong>Categoria</strong><br />
                         <a href="#">Aventura</a>,<a href="#">Thriller</a>,<a href="#">Psicologico</a>
+
                     </div>
                     <a href="{{ $libro->link }}" class="watch-btn">Leer</a>
                 </div>
+                
             </div>
         </div>
     </section>
     <section class="book-details">
         <strong>{{ $libro->name }}</strong>
         <p>{{ $libro->description }}</p>
+        <a href="{{route('libros.edit',$libro)}}" class="watch-btn">Editar</a>
     </section>
 </body>
 
