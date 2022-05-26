@@ -8,7 +8,6 @@ use App\Http\Requests\LoginRequest;
 
 class LoginController extends Controller
 {
-    //
     public function show()
     {
         if(Auth::check()){
@@ -27,8 +26,6 @@ class LoginController extends Controller
                 ->withErrors(trans('auth.failed'));
         endif;
         $user = Auth::getProvider()->retrieveByCredentials($credentials);
-        
-
         Auth::login($user);
 
         return $this->authenticated($request, $user);

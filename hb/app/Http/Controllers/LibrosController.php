@@ -15,7 +15,21 @@ class LibrosController extends Controller
     public function create(){
         return view('libros.create');
     }
+    
     public function store(Request $request){
+
+        //Validacion de datos
+
+        $request->validate([
+            'name'=>'required',
+            'genre'=>'required',
+            'img'=>'required',
+            'publication_date'=>'required',
+            'description'=>'required',
+            'link'=>'required',
+            'Author'=>'required'
+        ]);
+
         $libro = new Libro();
 
         $libro->name = $request->name;
@@ -43,6 +57,17 @@ class LibrosController extends Controller
 
     }
     public function update(Request $request,Libro $libro){
+        
+        $request->validate([
+            'name'=>'required',
+            'genre'=>'required',
+            'img'=>'required',
+            'publication_date'=>'required',
+            'description'=>'required',
+            'link'=>'required',
+            'Author'=>'required'
+        ]);
+
         $libro->name = $request->name;
         $libro->genre = $request->genre;
         $libro->img = $request->img; 
@@ -50,6 +75,7 @@ class LibrosController extends Controller
         $libro->description = $request->description;
         $libro->Author = $request->Author;
         $libro->link = $request->link;
+
         $libro->save();
 
         return redirect()->route('libros.show',$libro);
