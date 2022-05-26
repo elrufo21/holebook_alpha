@@ -1,4 +1,6 @@
 @extends('layouts.app-master')
+<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
 
 @section('content')
     <style>
@@ -71,7 +73,9 @@
                     <a href="{{route('libros.show',$libro->id)}}">Leer</a>
                 </div>
             @endforeach
+            {{$libros->links()}}
         </div>
+        
         @else
         <div class="containerlb">
             @foreach ($libros as $libro )
@@ -82,6 +86,7 @@
                     <a href="{{route('sub.index')}}">Suscribirse</a>
                 </div>
             @endforeach
+            {{$libros->links()}}
         </div>
         @endif
     @endauth
@@ -95,6 +100,9 @@
                 <a href="{{route('login.show')}}">Iniciar Sesion</a>
             </div>
         @endforeach
+        {{$libros->links()}}
     </div>
     @endguest
+    <br>
+   
 @endsection

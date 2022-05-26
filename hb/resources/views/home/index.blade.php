@@ -137,12 +137,16 @@
     <div class="bg-light p-5 rounded">
         @auth
             @if (auth()->user()->role == 'subs')
-                
+                <a id="banner">
+                    <img src="img/banner.jpg" style="width: 100%;
+                                    height: auto;
+                                    margin-top: 20px; background-attachment: fixed;background-repeat: no-repeat;">
+                </a>
             @else
                 <a id="banner">
                     <img src="img/banner.jpg" style="width: 100%;
-                                height: auto;
-                                margin-top: 20px; background-attachment: fixed;background-repeat: no-repeat;">
+                                        height: auto;
+                                        margin-top: 20px; background-attachment: fixed;background-repeat: no-repeat;">
                 </a>
                 <!--card slider-->
                 <div class="carousel">
@@ -151,7 +155,7 @@
                             <img src="{{ $libro->img }}" class="p">
                             <p class="n">{{ $libro->name }}</p>
                             <p class="a">{{ $libro->description }}</p>
-                            <a href="{{route('sub.index')}}">
+                            <a href="{{ route('sub.index') }}">
                                 <p class="b">Suscribirse</p>
                             </a>
                             <p class="content"></p>
