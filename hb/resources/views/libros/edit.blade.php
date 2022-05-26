@@ -60,7 +60,7 @@ integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52n
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Genero
                             <br>
-                            <input type="text" name="genre" id="exampleFormControlInput1" value='{{ old('genre',$libro->genre) }}'
+                            <input type="text" name="genre" id="exampleFormControlInput1" value='{{old('genre',$libro->genre) }}'
                                 placeholder="{{ $libro->genre }}">
                         </label>
                         @error('genre')

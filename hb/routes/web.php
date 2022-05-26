@@ -29,13 +29,22 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
 });
 
 Route::get('libros',[LibrosController::class,'index'])->name('libros.index');
+
 Route::get('libros/create',[LibrosController::class,'create'])->name('libros.create');
+
 Route::post('libros',[LibrosController::class,'store'])->name('libros.store');
+
 Route::get('libros/{libro}',[LibrosController::class,'show'])->name('libros.show');
 
 Route::get('libros/{libro}/edit',[LibrosController::class,'edit'])->name('libros.edit');
+
 Route::put('libros/{libro}',[LibrosController::class,'update'])->name('libros.update');//Laravel recomiendo usar el metodo put siempre que vayamos a actualizar un formulario
 
 Route::get('suscribirse',[SubController::class,'index'])->name('sub.index');
+
+Route::delete('libros/{libro}',[LibrosController::class,'destroy'])->name('libro.destroy');//Laravel recomiendo usar el metodo delete cuando querramos eliminar 
+
+
+Route::get('suscribirse/paypall',[SubController::class,'paypall'])->name('sub.paypall');
 
 Route::get('user',[UserController::class,'index'])->name('user.index');

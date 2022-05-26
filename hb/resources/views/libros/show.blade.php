@@ -275,6 +275,11 @@
         <strong>{{ $libro->name }}</strong>
         <p>{{ $libro->description }}</p>
         <a href="{{route('libros.edit',$libro)}}" class="watch-btn">Editar</a>
+        <form action="{{route('libro.destroy',$libro)}}" method="POST">
+            @csrf
+            @method('delete')
+            <button type="submit">Eliminar</button>
+        </form>
     </section>
 </body>
 

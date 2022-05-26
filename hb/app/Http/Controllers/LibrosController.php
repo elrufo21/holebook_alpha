@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Libro;
 use Illuminate\Http\Request;
-use PhpParser\Node\Stmt\Return_;
+use App\Http\Requests\StoreLibro;
+
 
 class LibrosController extends Controller
 {
@@ -16,20 +17,9 @@ class LibrosController extends Controller
         return view('libros.create');
     }
     
-    public function store(Request $request){
+    public function store(StoreLibro $request){
 
-        //Validacion de datos
-
-        $request->validate([
-            'name'=>'required',
-            'genre'=>'required',
-            'img'=>'required',
-            'publication_date'=>'required',
-            'description'=>'required',
-            'link'=>'required',
-            'Author'=>'required'
-        ]);
-
+        /*Validacion de datos
         $libro = new Libro();
 
         $libro->name = $request->name;
@@ -41,6 +31,9 @@ class LibrosController extends Controller
         $libro->link = $request->link;
 
         $libro->save();
+        Optimizacion de codigo*/
+
+        $libro = Libro::create($request->all());
 
         return redirect()->route('libros.show',$libro);
     }
@@ -67,7 +60,7 @@ class LibrosController extends Controller
             'link'=>'required',
             'Author'=>'required'
         ]);
-
+/*
         $libro->name = $request->name;
         $libro->genre = $request->genre;
         $libro->img = $request->img; 
@@ -77,9 +70,12 @@ class LibrosController extends Controller
         $libro->link = $request->link;
 
         $libro->save();
-
+*/      
+        $libro->update($request->all());
         return redirect()->route('libros.show',$libro);
-
-       
+    }
+    public function destroy(Libro $libro){
+        $libro->delete();
+        return redirect()->route('libros.index');
     }
 }
