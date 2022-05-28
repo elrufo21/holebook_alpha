@@ -14,4 +14,7 @@ class HomeController extends Controller
         $libros=Libro::orderBy('id','desc')->paginate();
         return view('home.index',compact('libros'));
     }
+    public function noticias(){
+        return view('home.noticias');
+    }
 }

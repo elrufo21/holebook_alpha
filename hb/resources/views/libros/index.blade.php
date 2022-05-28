@@ -60,7 +60,7 @@
         }
 
     </style>
-
+    <!--Insertar aqui el navbar-->
     <h1 class="title">Libros nuevos todas las semanas</h1>
     @auth
         @if (auth()->user()->role == 'subs')

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactanosController;
 use App\Http\Controllers\LibrosController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
@@ -7,11 +8,12 @@ use App\Http\Controllers\SubController;
 use App\Http\Controllers\UserController;
 
 
+
 Route::group(['namespace' => 'App\Http\Controllers'], function()
 {   
     
     Route::get('/', 'HomeController@index')->name('home.index');
-
+    Route::get('/noticias','HomeController@noticias')->name('noticias.index');
     Route::group(['middleware' => ['guest']], function() {
        
         Route::get('/register', 'RegisterController@show')->name('register.show');
@@ -28,7 +30,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
     });
 });
 
-Route::get('libros',[LibrosController::class,'index'])->name('libros.index');
+/*Route::get('libros',[LibrosController::class,'index'])->name('libros.index');
 
 Route::get('libros/create',[LibrosController::class,'create'])->name('libros.create');
 
@@ -40,11 +42,15 @@ Route::get('libros/{libro}/edit',[LibrosController::class,'edit'])->name('libros
 
 Route::put('libros/{libro}',[LibrosController::class,'update'])->name('libros.update');//Laravel recomiendo usar el metodo put siempre que vayamos a actualizar un formulario
 
+Route::delete('libros/{libro}',[LibrosController::class,'destroy'])->name('libros.destroy');//Laravel recomiendo usar el metodo delete cuando querramos eliminar 
+*/
+Route::resource('libros',LibrosController::class);
+
 Route::get('suscribirse',[SubController::class,'index'])->name('sub.index');
-
-Route::delete('libros/{libro}',[LibrosController::class,'destroy'])->name('libro.destroy');//Laravel recomiendo usar el metodo delete cuando querramos eliminar 
-
 
 Route::get('suscribirse/paypall',[SubController::class,'paypall'])->name('sub.paypall');
 
 Route::get('user',[UserController::class,'index'])->name('user.index');
+
+Route::get('contactanos',[ContactanosController::class,'index'])->name('contactanos.index');
+Route::post('contactanos',[ContactanosController::class,'store'])->name('contactanos.store');
