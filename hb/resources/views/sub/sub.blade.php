@@ -209,6 +209,7 @@
             </div>
             <!-- button -->
             <button class="card-button">COMPRAR</button>
+            
         </div>
     </section>
     </div>
