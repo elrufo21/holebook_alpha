@@ -270,11 +270,12 @@
     <section class="perfil-usuario">
         <div class="contenedor-perfil">
             <div class="portada-perfil"
-                style="background-image: url('http://localhost/multimedia/relleno/fondo-9.png');">
+                style="background-image: url(<?php echo auth()->user()->imgPortada ?>);">
                 <div class="sombra"></div>
                 <div class="avatar-perfil">
-                    <img src="http://localhost/multimedia/relleno/img-c9.png" alt="img">
-                    <a href="#" class="cambiar-foto">
+                    <img src="{{auth()->user()->imgPerfil}}" alt="img">
+                   
+                    <a href="{{route('user.edit',auth()->user()->id)}}" class="cambiar-foto">
                         <i class="fas fa-camera"></i>
                         <span>Cambiar foto</span>
                     </a>
@@ -285,7 +286,7 @@
                         Suscriptor hasta {{auth()->user()->cSub}}
                     @endif</p>
                     <ul class="lista-perfil">
-                        <li>25 Seguidores</li>
+                        <li>25 Seguidores <?php  ?></li>
                         <li></li>
                         <li>5 Libros</li>
                     </ul>

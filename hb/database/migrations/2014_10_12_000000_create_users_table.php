@@ -18,8 +18,11 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->string('email')->unique();
             $table->string('username')->unique();
-            $table->string('role')->default('subs');
+            $table->string('role')->default('user');
+            $table->date('fsub')->nullable();
             $table->date('cSub')->nullable();
+            $table->text('imgPerfil')->nullable();
+            $table->text('imgPortada')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

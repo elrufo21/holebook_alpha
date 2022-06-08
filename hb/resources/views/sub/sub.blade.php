@@ -1,7 +1,9 @@
+
 @if (auth()->user())
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <!-- icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
     <style>
         * {
             margin: 0;
@@ -133,6 +135,15 @@
             background-color: transparent;
             color: #ec615b;
             font-weight: 800;
+
+        }
+        a{
+            text-decoration: none;
+            color: #fff;
+        }
+        a:hover{
+            text-decoration: none;
+            color: #ec615b;
         }
 
     </style>
@@ -145,74 +156,80 @@
             </a>
     </div>
     </nav>
-    <section class="pricing">
-        <div class="card-wrapper">
-            <!-- card-header -->
-            <div class="card-header">
-                <img src="img/graphic-design-6175679.svg">
-                <h2>ESTUDIANTE</h2>
+    <form action="{{route('user.subs',auth()->user())}}" method="POST">
+        @csrf 
+        @method('put')
+        <section class="pricing">
+            <div class="card-wrapper">
+                <!-- card-header -->
+                <div class="card-header">
+                    <img src="img/graphic-design-6175679.svg">
+                    <h2>ESTUDIANTE</h2>
+                </div>
+                <!-- card-detail -->
+                <div class="card-detail">
+                    <p><span class="fas fa-check check"></span> Libros Ilimitados</p>
+                    <p><span class="fas fa-check check"></span> <b>0 </b> Anuncios</p>
+                    <p><span class="fas fa-times nocheck"></span> Publicar su libro</p>
+                    <p><span class="fas fa-times nocheck"></span> Descargar libros</p>
+                    <p><span class="fas fa-times nocheck"></span> Monetizar libros</p>
+                </div>
+                <!-- card-price -->
+                <div class="card-price">
+                    <p><sup>$ </sup>5<sub>/mes</sub></p>
+                </div>
+                <!-- button -->
+                <button class="card-button" type="submit"><a href="{{route('user.subs',auth()->user()->id)}}">COMPRAR</a></button>
             </div>
-            <!-- card-detail -->
-            <div class="card-detail">
-                <p><span class="fas fa-check check"></span> Libros Ilimitados</p>
-                <p><span class="fas fa-check check"></span> <b>0 </b> Anuncios</p>
-                <p><span class="fas fa-times nocheck"></span> Publicar su libro</p>
-                <p><span class="fas fa-times nocheck"></span> Descargar libros</p>
-                <p><span class="fas fa-times nocheck"></span> Monetizar libros</p>
+    
+            <div class="card-wrapper">
+                <!-- card-header -->
+                <div class="card-header">
+                    <img src="img/graphic-design-6175679.svg">
+                    <h2>PREMIUM</h2>
+                </div>
+                <!-- card-detail -->
+                <div class="card-detail">
+                    <p><span class="fas fa-check check"></span> Libros Ilimitados</p>
+                    <p><span class="fas fa-check check"></span> <b>0 </b> Anuncios</p>
+                    <p><span class="fas fa-check check"></span> Publicar su libro</p>
+                    <p><span class="fas fa-times nocheck"></span> Descargar libros</p>
+                    <p><span class="fas fa-times nocheck"></span> Monetizar libros</p>
+                </div>
+                <!-- card-price -->
+                <div class="card-price">
+                    <p><sup>$ </sup>15<sub>/mes</sub></p>
+                </div>
+                <!-- button -->
+                <button class="card-button" type="submit" ><a href="{{route('user.subs',auth()->user()->id)}}">COMPRAR</a></button>
             </div>
-            <!-- card-price -->
-            <div class="card-price">
-                <p><sup>$ </sup>5<sub>/mes</sub></p>
+            <div class="card-wrapper">
+                <!-- card-header -->
+                <div class="card-header">
+                    <img src="img/graphic-design-6175679.svg ">
+                    <h2>PLATINIUM</h2>
+                </div>
+                <!-- card-detail -->
+                <div class="card-detail">
+                    <p><span class="fas fa-check check"></span> Libros Ilimitados</p>
+                    <p><span class="fas fa-check check"></span> <b>0 </b> Anuncios</p>
+                    <p><span class="fas fa-check check"></span> Publicar su libro</p>
+                    <p><span class="fas fa-check check"></span> Descargar libros</p>
+                    <p><span class="fas fa-check check"></span> Monetizar libros</p>
+                </div>
+                <!-- card-price -->
+                <div class="card-price">
+                    <p><sup>$ </sup>25<sub>/mes</sub></p>
+                </div>
+                <!-- button -->
+                <button class="card-button" type="submit" ><a href="{{route('user.subs',auth()->user()->id)}}">COMPRAR</a></button>
+                
             </div>
-            <!-- button -->
-            <button class="card-button">COMPRAR</button>
-        </div>
-
-        <div class="card-wrapper">
-            <!-- card-header -->
-            <div class="card-header">
-                <img src="img/graphic-design-6175679.svg">
-                <h2>PREMIUM</h2>
-            </div>
-            <!-- card-detail -->
-            <div class="card-detail">
-                <p><span class="fas fa-check check"></span> Libros Ilimitados</p>
-                <p><span class="fas fa-check check"></span> <b>0 </b> Anuncios</p>
-                <p><span class="fas fa-check check"></span> Publicar su libro</p>
-                <p><span class="fas fa-times nocheck"></span> Descargar libros</p>
-                <p><span class="fas fa-times nocheck"></span> Monetizar libros</p>
-            </div>
-            <!-- card-price -->
-            <div class="card-price">
-                <p><sup>$ </sup>15<sub>/mes</sub></p>
-            </div>
-            <!-- button -->
-            <button class="card-button">COMPRAR</button>
-        </div>
-        <div class="card-wrapper">
-            <!-- card-header -->
-            <div class="card-header">
-                <img src="img/graphic-design-6175679.svg ">
-                <h2>PLATINIUM</h2>
-            </div>
-            <!-- card-detail -->
-            <div class="card-detail">
-                <p><span class="fas fa-check check"></span> Libros Ilimitados</p>
-                <p><span class="fas fa-check check"></span> <b>0 </b> Anuncios</p>
-                <p><span class="fas fa-check check"></span> Publicar su libro</p>
-                <p><span class="fas fa-check check"></span> Descargar libros</p>
-                <p><span class="fas fa-check check"></span> Monetizar libros</p>
-            </div>
-            <!-- card-price -->
-            <div class="card-price">
-                <p><sup>$ </sup>25<sub>/mes</sub></p>
-            </div>
-            <!-- button -->
-            <button class="card-button">COMPRAR</button>
-            
-        </div>
-    </section>
+        </section>
+    </form>
+    
     </div>
+    
 @else
     <a href="{{route('login.show')}}">Inicia sesion para ver nuestros planes!!</a>
 @endif

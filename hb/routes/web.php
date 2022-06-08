@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ContactanosController;
 use App\Http\Controllers\LibrosController;
+use App\Http\Controllers\PerfilController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SubController;
@@ -48,9 +49,14 @@ Route::resource('libros',LibrosController::class);
 
 Route::get('suscribirse',[SubController::class,'index'])->name('sub.index');
 
-Route::get('suscribirse/paypall',[SubController::class,'paypall'])->name('sub.paypall');
+Route::put('suscribirse/{user}/sub',[UserController::class,'subs'])->name('user.subs');
 
 Route::get('user',[UserController::class,'index'])->name('user.index');
 
+Route::get('user/{user}/edit',[UserController::class,'edit'])->name('user.edit');
+
+Route::put('user/{user}',[UserController::class,'update'])->name('user.update');
+
 Route::get('contactanos',[ContactanosController::class,'index'])->name('contactanos.index');
 Route::post('contactanos',[ContactanosController::class,'store'])->name('contactanos.store');
+
