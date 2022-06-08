@@ -1,6 +1,6 @@
 
 <!--navbar-->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" id="logo" href="#">
                 <img src="img/logo_transparent.png" alt="logo" style="width:70px;">
@@ -20,7 +20,7 @@
                         <a class="nav-link" href="#">Noticias</a>
                     </li>
 
-                    @if (auth()->user()->role == 'subs')
+                    <?php if(auth()->user()->role == 'subs'): ?>
                     <a href="{{ route('libros.create') }}" class="nav-link px-2">Publicar un libro</a>
                     @endif
                     <li class="nav-item">
