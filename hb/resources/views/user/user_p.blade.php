@@ -34,7 +34,7 @@
 
 
         .perfil-usuario {
-            background: linear-gradient(#3FD0F4, transparent);
+            background: linear-gradient(#726f6f, transparent);
             color: #333;
         }
 
@@ -195,7 +195,7 @@
         }
 
         .perfil-usuario .menu-perfil a:hover {
-            background-color: #4CB0C6;
+            background-color: #dc3545;
             color: #fff;
         }
 
